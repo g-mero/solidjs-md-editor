@@ -91,7 +91,7 @@ export default function MdEditor(props: {
       >
         <div class={styles.editor} />
         <div class={styles.preview}>
-          <div class={styles['preview-content']} />
+          <div class={`${styles['preview-content']} markdown-body`} />
         </div>
       </div>
     </div>
