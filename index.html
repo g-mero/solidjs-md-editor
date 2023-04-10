@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + Solid</title>
+</head>
+
+<body style="background-color: blanchedalmond;">
+  <div id="app" style="max-width: 600px; margin: 3rem auto 0;"></div>
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
+  <script type="module">
+    import { Editor } from '/src/index.ts'
+
+    const md = window.markdownit()
+
+    const editor = Editor({
+      target: document.querySelector('#app'),
+      onChange(v) {
+        console.log(v)
+      },
+      handelPreview(v) {
+        return md.render(v)
+      },
+      theme: 'dark',
+    })
+
+    editor.setTheme('')
+    editor.setVal(`## 这是测试测试
+可能有一些小问题
+
+但是问题不大
+
+主要是想看看有没有用
+
+> 比如这是一个blockquote
+
+> 这也是
+
+\`\`\`javascript
+代码块也挺好看的
+hahahhahahha
+
+ \`\`\`
+ 
+尽量弄个长一点我好测试滚动条的情况
+
+啊啊啊
+
+啊啊啊
+
+啊啊啊
+
+啊啊啊
+
+啊啊啊
+ 
+ `)
+  </script>
+</body>
+
+</html>

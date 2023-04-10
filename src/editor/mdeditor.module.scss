@@ -1,0 +1,84 @@
+.out-wrapper {
+  /* 一些变量 */
+  --gm-border: 1px solid #ddd;
+  --gm-color-hover: #f1f1f1;
+  --gm-color-text: #000;
+  --gm-bg-color: #fff;
+  --gm-color-trans: #000000b4;
+
+  &.dark {
+    --gm-border: 1px solid #868686;
+    --gm-color-hover: #353535;
+    --gm-color-text: #fff;
+    --gm-color-trans: #ffffffb4;
+    --gm-bg-color: #191919;
+  }
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  color: var(--gm-color-text);
+  background-color: var(--gm-bg-color);
+
+  &.show-preview {
+    .editor {
+      opacity: 0;
+      translate: -100%;
+    }
+
+    .preview {
+      opacity: 1;
+      translate: 0;
+    }
+  }
+}
+
+.toolbar {
+  display: flex;
+  padding: 0.4rem;
+  border-bottom: var(--gm-border);
+}
+
+.editor-wrapper {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  .editor {
+    cursor: text;
+    width: 100%;
+    opacity: 1;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .preview {
+    box-sizing: content-box;
+    height: 100%;
+    width: calc(100% - 2px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    translate: 100%;
+    transition: all 0.25s ease-in-out;
+    overflow-y: auto;
+
+    /* 滚动条 */
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(144, 147, 153, 0.3);
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    .preview-content {
+      padding: 0.3rem;
+    }
+  }
+}
