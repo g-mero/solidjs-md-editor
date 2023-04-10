@@ -1,7 +1,7 @@
 import './global.scss'
 import { createEffect, createSignal, onMount } from 'solid-js'
 
-import { debounce } from 'lodash'
+import { debounce } from 'lodash-es'
 import CodeMirror from '../codemirror'
 import styles from './mdeditor.module.scss'
 import Toolbar from './toolbar/Toolbar.jsx'

@@ -1,4 +1,4 @@
-import { isArray } from 'lodash'
+import { isArray } from 'lodash-es'
 import { For, Show, createSignal, onMount } from 'solid-js'
 import type { MdEditorInstType } from '../MdEditor'
 import Dropdown from './dropdown/Dropdown'

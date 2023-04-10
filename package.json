@@ -1,7 +1,7 @@
 {
   "name": "solidjs-md-editor",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7_alpha",
   "type": "module",
   "main": "./dist/editor.es.js",
   "module": "./dist/editor.es.js",
@@ -18,7 +18,7 @@
     "@iconify-icon/solid": "^1.0.7",
     "@iconify-icons/solar": "^1.2.0",
     "@types/codemirror": "^5.60.7",
-    "@types/lodash": "^4.14.192",
+    "@types/lodash-es": "^4.17.7",
     "@xbmlz/eslint-config-prettier": "^0.1.16",
     "@xbmlz/eslint-config-solid": "^0.1.16",
     "babel-preset-solid": "^1.7.3",
@@ -33,7 +33,7 @@
   "dependencies": {
     "@babel/core": "^7.21.4",
     "codemirror": "5.65.12",
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "solid-js": "^1.7.3"
   }
 }
