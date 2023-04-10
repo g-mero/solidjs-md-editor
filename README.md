@@ -8,7 +8,7 @@
 pnpm i solidjs-md-editor
 ```
 
-### 原生js
+### 原生js用法
 
 ```typescript
 import { Editor } from 'solidjs-md-editor'
@@ -18,9 +18,13 @@ const editor = Editor({
   onChange(v) {
     console.log(v)
   },
+  handelPreview(v) {
+    return customTrans(v)
+  },
+  height: '600px',
   theme: 'dark',
 })
 
-editor.setTheme('') // 切换主题只有light跟dark 默认是light
+editor.setTheme('light') // 切换主题只有light跟dark 默认是light
 editor.setVal('初始化数据') // 设置值
 ```
