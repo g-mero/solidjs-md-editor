@@ -12500,7 +12500,7 @@ function N1(c) {
         return p();
       }
     })), Yn(($) => {
-      const V = `${Xn["out-wrapper"]} ${c.theme === "dark" ? Xn.dark : ""}`, pe = Xn.toolbar, ce = Xn["editor-wrapper"], Le = c.height || "300px", We = Xn.editor, Ze = Xn.preview, De = Xn["preview-content"];
+      const V = `${Xn["out-wrapper"]} ${c.theme === "dark" ? Xn.dark : ""}`, pe = Xn.toolbar, ce = Xn["editor-wrapper"], Le = c.height || "300px", We = Xn.editor, Ze = Xn.preview, De = `${Xn["preview-content"]} markdown-body`;
       return V !== $._v$ && wn(w, $._v$ = V), pe !== $._v$2 && wn(C, $._v$2 = pe), ce !== $._v$3 && wn(L, $._v$3 = ce), Le !== $._v$4 && (($._v$4 = Le) != null ? L.style.setProperty("height", Le) : L.style.removeProperty("height")), We !== $._v$5 && wn(F, $._v$5 = We), Ze !== $._v$6 && wn(D, $._v$6 = Ze), De !== $._v$7 && wn(P, $._v$7 = De), $;
     }, {
       _v$: void 0,
