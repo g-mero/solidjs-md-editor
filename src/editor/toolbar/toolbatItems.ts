@@ -3,12 +3,16 @@ import { emoItem } from './toolbarItems/emotions'
 import { previewItem } from './toolbarItems/preview'
 
 export interface ToolbarItem {
-  title: string
-  icon: string
-  action?: (inst: MdEditorInstType, itemInst: ToolbarItemInst) => void
+  title: string // 名字，显示在tooltip
+  icon: string // 图标，这里使用iconify的图标
+  action?: (inst: MdEditorInstType, itemInst: ToolbarItemInst) => void // 点击时运行
+  // 下拉菜单的内容，可以是一个个toolbarItem，也可以是自定义的内容，并提供一个方法它将在dom渲染完毕后执行
   menu?:
     | ToolbarItem[]
-    | { innerHTML: string; onMount: (inst: MdEditorInstType) => void }
+    | {
+        innerHTML: string
+        onMount: (inst: MdEditorInstType, itemInst: ToolbarItemInst) => void
+      }
 }
 
 export interface ToolbarItemInst {

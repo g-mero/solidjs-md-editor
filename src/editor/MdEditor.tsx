@@ -1,9 +1,3 @@
-import 'codemirror/addon/scroll/simplescrollbars'
-
-import '../codemirror/codemirror.scss'
-import '../codemirror/blackboard.css'
-import '../codemirror/simplescrollbars.scss'
-
 import './global.scss'
 import { createEffect, createSignal, onMount } from 'solid-js'
 

@@ -10,6 +10,7 @@ interface params {
   theme: 'light' | 'dark'
 }
 
+// 暴露给原生js使用，这里其实也就是对MdEditor的原生化封装
 export function Editor(config: params) {
   if (!config.target) return
   const [theme, setTheme] = createSignal(config.theme)
