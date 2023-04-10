@@ -1,7 +1,7 @@
 {
   "name": "solidjs-md-editor",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "main": "./dist/editor.es.js",
   "module": "./dist/editor.es.js",
@@ -34,7 +34,6 @@
     "@babel/core": "^7.21.4",
     "codemirror": "5.65.12",
     "lodash": "^4.17.21",
-    "solid-js": "^1.7.3",
-    "tippy.js": "^6.3.7"
+    "solid-js": "^1.7.3"
   }
 }
