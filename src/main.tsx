@@ -14,11 +14,16 @@ interface params {
 export function Editor(config: params) {
   if (!config.target) return
   const [theme, setTheme] = createSignal(config.theme)
-  const [value, setVal] = createSignal('')
+  const [value, setValue] = createSignal('')
+  const [currentVal, setCurrentVal] = createSignal('')
+  const onChange = (v: string) => {
+    setCurrentVal(v)
+    config.onChange(v)
+  }
   render(
     () => (
       <MdEditor
-        onChange={config.onChange}
+        onChange={onChange}
         handelPreview={config.handelPreview}
         height={config.height}
         theme={theme()}
@@ -29,7 +34,15 @@ export function Editor(config: params) {
   )
 
   return {
-    setTheme,
-    setVal,
+    setTheme: (theme: 'light' | 'dark') => {
+      setTheme(theme)
+    },
+    /* 设置编辑器的值 */
+    setVal: (v: string) => {
+      if (currentVal() !== v) setValue(v)
+    },
+    getVal: () => {
+      return currentVal()
+    },
   }
 }
