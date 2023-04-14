@@ -1,6 +1,6 @@
-import type { MdEditorInstType } from '../MdEditor'
-import { emoItem } from './toolbarItems/emotions'
-import { previewItem } from './toolbarItems/preview'
+import type { MdEditorInstType } from '../../MdEditor'
+import { emoItem } from './emotions'
+import { previewItem } from './preview'
 
 export interface ToolbarItem {
   title: string // 名字，显示在tooltip
@@ -18,6 +18,7 @@ export interface ToolbarItem {
 export interface ToolbarItemInst {
   $element: HTMLElement
   active: (bool: boolean) => void
+  disable: (bool: boolean) => void
   changeTitle: (v: string) => void
 }
 

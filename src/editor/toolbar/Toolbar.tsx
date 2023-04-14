@@ -4,8 +4,8 @@ import type { MdEditorInstType } from '../MdEditor'
 import Dropdown from './dropdown/Dropdown'
 import Icon from './icon/Icon'
 import styles from './toolbar.module.scss'
-import type { ToolbarItem, ToolbarItemInst } from './toolbatItems'
-import { defaultItems, divide } from './toolbatItems'
+import type { ToolbarItem, ToolbarItemInst } from './toolbarItems'
+import { defaultItems, divide } from './toolbarItems'
 import Tooltip from './tooltip/tooltip'
 
 function RenderToolbarItem(props: {
@@ -24,6 +24,10 @@ function RenderToolbarItem(props: {
     },
     changeTitle(v) {
       setTitle(v)
+    },
+    disable(bool) {
+      if (bool) itemInst().$element.classList.add(styles.disable)
+      else itemInst().$element.classList.remove(styles.disable)
     },
   })
 

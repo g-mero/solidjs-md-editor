@@ -1,4 +1,4 @@
-import type { ToolbarItem } from '../toolbatItems'
+import type { ToolbarItem } from '.'
 
 import './emotions.scss'
 

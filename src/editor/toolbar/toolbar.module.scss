@@ -55,6 +55,11 @@
   &.active {
     background-color: var(--gm-color-hover);
   }
+
+  &.disable {
+    pointer-events: none;
+    opacity: 0.8;
+  }
 }
 
 .vr {

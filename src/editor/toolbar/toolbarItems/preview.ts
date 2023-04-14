@@ -1,7 +1,6 @@
 import type { MdEditorInstType } from '../../MdEditor'
-import type { ToolbarItem, ToolbarItemInst } from '../toolbatItems'
-
 import styles from '../../mdeditor.module.scss'
+import type { ToolbarItem, ToolbarItemInst } from '.'
 
 function action(inst: MdEditorInstType, itemInst: ToolbarItemInst) {
   const isPreview = inst.$element.classList.contains(styles['show-preview'])
