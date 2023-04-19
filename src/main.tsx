@@ -15,9 +15,8 @@ export function Editor(config: params) {
   if (!config.target) return
   const [theme, setTheme] = createSignal(config.theme)
   const [value, setValue] = createSignal('')
-  const [currentVal, setCurrentVal] = createSignal('')
   const onChange = (v: string) => {
-    setCurrentVal(v)
+    setValue(v)
     config.onChange(v)
   }
   render(
@@ -39,10 +38,10 @@ export function Editor(config: params) {
     },
     /* 设置编辑器的值 */
     setVal: (v: string) => {
-      if (currentVal() !== v) setValue(v)
+      setValue(v)
     },
     getVal: () => {
-      return currentVal()
+      return value()
     },
   }
 }

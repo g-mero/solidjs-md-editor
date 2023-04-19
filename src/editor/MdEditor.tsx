@@ -1,7 +1,6 @@
 import './global.scss'
 import { createEffect, createSignal, onMount } from 'solid-js'
 
-import { debounce } from 'lodash-es'
 import CodeMirror from '../codemirror'
 import styles from './mdeditor.module.scss'
 import Toolbar from './toolbar/Toolbar.jsx'
@@ -51,13 +50,10 @@ export default function MdEditor(props: {
 
       setInst(editorInst)
 
-      cm.on(
-        'change',
-        debounce(() => {
-          const value = cm.getValue()
-          props.onChange(value)
-        }, 200),
-      )
+      cm.on('change', () => {
+        const value = cm.getValue()
+        props.onChange(value)
+      })
 
       createEffect(() => {
         if (props.theme === 'dark') {
@@ -68,9 +64,11 @@ export default function MdEditor(props: {
       })
 
       createEffect(() => {
-        cm.setValue(props.value)
-        cm.refresh()
-        cm.focus()
+        if (props.value !== cm.getValue()) {
+          cm.setValue(props.value)
+          cm.refresh()
+          cm.focus()
+        }
       })
     }
   })
