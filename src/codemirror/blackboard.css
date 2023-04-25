@@ -5,6 +5,10 @@
   color: #f8f8f8;
 }
 
+.cm-s-blackboard .cm-quote {
+  color: #61ce3c;
+}
+
 .cm-s-blackboard div.CodeMirror-selected {
   background: #253b76;
 }
