@@ -14,4 +14,14 @@
   .CodeMirror-selected {
     background: mix(#e8f2ff, #000, 90%);
   }
+
+  .cm-property {
+    color: #2400c2;
+  }
+  .cm-variable {
+    color: #1890ff;
+  }
+  .cm-comment {
+    color: gray;
+  }
 }

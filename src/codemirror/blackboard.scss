@@ -1,0 +1,98 @@
+/* Port of TextMate's Blackboard theme */
+
+.cm-s-blackboard.CodeMirror {
+  background: #191919;
+  color: #f8f8f8;
+}
+
+.cm-s-blackboard {
+  .cm-quote {
+    color: #61ce3c;
+  }
+  div.CodeMirror-selected {
+    background: #253b76;
+  }
+  .CodeMirror-line::selection,
+  .CodeMirror-line > span::selection,
+  .CodeMirror-line > span > span::selection {
+    background: rgba(37, 59, 118, 0.99);
+  }
+  .CodeMirror-gutters {
+    background: #0c1021;
+    border-right: 0;
+  }
+  .CodeMirror-guttermarker {
+    color: #fbde2d;
+  }
+  .CodeMirror-guttermarker-subtle {
+    color: #888;
+  }
+  .CodeMirror-linenumber {
+    color: #888;
+  }
+  .CodeMirror-cursor {
+    border-left: 1px solid #a7a7a7;
+  }
+  .cm-keyword {
+    color: #fbde2d;
+  }
+  .cm-atom {
+    color: #d8fa3c;
+  }
+  .cm-number {
+    color: #d8fa3c;
+  }
+  .cm-def {
+    color: #a3f4ff;
+  }
+  .cm-variable {
+    color: #ff6400;
+  }
+  .cm-operator {
+    color: #fbde2d;
+  }
+  .cm-comment {
+    color: #aeaeae;
+  }
+  .cm-string {
+    color: #da9276;
+  }
+  .cm-string-2 {
+    color: #da9276;
+  }
+  .cm-meta {
+    color: #d8fa3c;
+  }
+  .cm-builtin {
+    color: #8da6ce;
+  }
+  .cm-tag {
+    color: #8da6ce;
+  }
+  .cm-attribute {
+    color: #8da6ce;
+  }
+  .cm-header {
+    color: #ff6400;
+  }
+  .cm-hr {
+    color: #aeaeae;
+  }
+  .cm-link {
+    color: #8da6ce;
+  }
+  .cm-error {
+    background: #9d1e15;
+    color: #f8f8f8;
+  }
+  .cm-property {
+    color: #dee778;
+  }
+  .CodeMirror-activeline-background {
+    background: #3c3636;
+  }
+  .CodeMirror-matchingbracket {
+    outline: 1px solid grey;
+    color: white !important;
+  }
+}

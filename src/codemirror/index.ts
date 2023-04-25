@@ -4,7 +4,7 @@ import 'codemirror/addon/scroll/simplescrollbars' // 滚动条
 
 import './codemirror.scss' // 核心样式
 import './light.scss'
-import './blackboard.css' // 暗色模式的样式
+import './blackboard.scss' // 暗色模式的样式
 import './simplescrollbars.scss' // 滚动条的样式
 
 // mode

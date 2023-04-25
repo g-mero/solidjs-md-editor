@@ -12,7 +12,13 @@ function action(inst: MdEditorInstType, itemInst: ToolbarItemInst) {
     itemInst.changeTitle('预览')
     itemInst.active(false)
   } else {
-    inst.$preview.innerHTML = inst.getPreview()
+    const innerHTML = inst.getPreview()
+    if (innerHTML) {
+      inst.$preview.innerHTML = innerHTML
+    } else {
+      inst.$preview.innerHTML = `<p style="opacity: .7;font-size: .9em;">您好像什么都没有输入</p>`
+    }
+
     editorWrapper?.classList.add(styles['show-preview'])
     itemInst.changeTitle('取消预览')
     itemInst.active(true)
