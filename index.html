@@ -11,11 +11,33 @@
 
 <body style="background-color: blanchedalmond;">
   <div id="app" style="max-width: 600px; margin: 3rem auto 0;"></div>
+  <div id="change-theme">
+    <i class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+        <g fill="none">
+          <path stroke="#888888"
+            d="M19.9 2.307a.483.483 0 0 0-.9 0l-.43 1.095a.484.484 0 0 1-.272.274l-1.091.432a.486.486 0 0 0 0 .903l1.091.432a.48.48 0 0 1 .272.273L19 6.81c.162.41.74.41.9 0l.43-1.095a.484.484 0 0 1 .273-.273l1.091-.432a.486.486 0 0 0 0-.903l-1.091-.432a.484.484 0 0 1-.273-.274l-.43-1.095ZM16.033 8.13a.483.483 0 0 0-.9 0l-.157.399a.484.484 0 0 1-.272.273l-.398.158a.486.486 0 0 0 0 .903l.398.157c.125.05.223.148.272.274l.157.399c.161.41.739.41.9 0l.157-.4a.484.484 0 0 1 .272-.273l.398-.157a.486.486 0 0 0 0-.903l-.398-.158a.484.484 0 0 1-.272-.273l-.157-.4Z" />
+          <path fill="currentColor"
+            d="m21.067 11.857l-.642-.388l.642.388Zm-8.924-8.924l-.388-.642l.388.642ZM21.25 12A9.25 9.25 0 0 1 12 21.25v1.5c5.937 0 10.75-4.813 10.75-10.75h-1.5ZM12 21.25A9.25 9.25 0 0 1 2.75 12h-1.5c0 5.937 4.813 10.75 10.75 10.75v-1.5ZM2.75 12A9.25 9.25 0 0 1 12 2.75v-1.5C6.063 1.25 1.25 6.063 1.25 12h1.5Zm12.75 2.25A5.75 5.75 0 0 1 9.75 8.5h-1.5a7.25 7.25 0 0 0 7.25 7.25v-1.5Zm4.925-2.781A5.746 5.746 0 0 1 15.5 14.25v1.5a7.247 7.247 0 0 0 6.21-3.505l-1.285-.776ZM9.75 8.5a5.747 5.747 0 0 1 2.781-4.925l-.776-1.284A7.246 7.246 0 0 0 8.25 8.5h1.5ZM12 2.75a.384.384 0 0 1-.268-.118a.285.285 0 0 1-.082-.155c-.004-.031-.002-.121.105-.186l.776 1.284c.503-.304.665-.861.606-1.299c-.062-.455-.42-1.026-1.137-1.026v1.5Zm9.71 9.495c-.066.107-.156.109-.187.105a.285.285 0 0 1-.155-.082a.384.384 0 0 1-.118-.268h1.5c0-.717-.571-1.075-1.026-1.137c-.438-.059-.995.103-1.299.606l1.284.776Z" />
+        </g>
+      </svg></i>
+
+    <i class="icon hide" style="color: #fff;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+        viewBox="0 0 24 24">
+        <g fill="currentColor">
+          <path d="M18 12a6 6 0 1 1-12 0a6 6 0 0 1 12 0Z" />
+          <path fill-rule="evenodd"
+            d="M12 1.25a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0V2a.75.75 0 0 1 .75-.75ZM4.399 4.399a.75.75 0 0 1 1.06 0l.393.392a.75.75 0 0 1-1.06 1.061l-.393-.393a.75.75 0 0 1 0-1.06Zm15.202 0a.75.75 0 0 1 0 1.06l-.393.393a.75.75 0 0 1-1.06-1.06l.393-.393a.75.75 0 0 1 1.06 0ZM1.25 12a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1-.75-.75Zm19 0a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75Zm-2.102 6.148a.75.75 0 0 1 1.06 0l.393.393a.75.75 0 1 1-1.06 1.06l-.393-.393a.75.75 0 0 1 0-1.06Zm-12.296 0a.75.75 0 0 1 0 1.06l-.393.393a.75.75 0 1 1-1.06-1.06l.392-.393a.75.75 0 0 1 1.061 0ZM12 20.25a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1a.75.75 0 0 1 .75-.75Z"
+            clip-rule="evenodd" />
+        </g>
+      </svg></i>
+  </div>
   <script src="https://cdn.staticfile.org/markdown-it/13.0.1/markdown-it.min.js"></script>
   <script type="module">
     import { Editor } from '/src/index.ts'
 
     const md = window.markdownit()
+
+    let theme = 'light'
 
     const editor = Editor({
       target: document.querySelector('#app'),
@@ -25,10 +47,9 @@
       handelPreview(v) {
         return md.render(v)
       },
-      theme: 'dark',
+      theme,
     })
 
-    editor.setTheme('')
     editor.setVal(`## 这是测试测试
 可能有一些小问题
 
@@ -41,10 +62,10 @@
 > 这也是
 
 \`\`\`javascript
-代码块也挺好看的
-hahahhahahha
+var gmero = "gmero"
 
- \`\`\`
+console.log(gmero)
+\`\`\`
  
 尽量弄个长一点我好测试滚动条的情况
 
@@ -59,6 +80,28 @@ hahahhahahha
 啊啊啊
  
  `)
+
+    const changeThemeBtn = document.querySelector('#change-theme')
+
+    if (changeThemeBtn) {
+      changeThemeBtn.addEventListener('click', () => {
+        const [moon, sun] = changeThemeBtn.querySelectorAll('.icon')
+        if (theme === 'light') {
+          theme = 'dark'
+          moon.classList.add('hide')
+          sun.classList.remove('hide')
+          changeThemeBtn.classList.add('dark')
+          document.body.classList.add('dark')
+        } else {
+          theme = 'light'
+          sun.classList.add('hide')
+          moon.classList.remove('hide')
+          changeThemeBtn.classList.remove('dark')
+          document.body.classList.remove('dark')
+        }
+        editor.setTheme(theme)
+      })
+    }
   </script>
 </body>
 

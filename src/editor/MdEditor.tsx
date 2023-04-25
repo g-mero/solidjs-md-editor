@@ -22,6 +22,7 @@ export default function MdEditor(props: {
 }) {
   const [inst, setInst] = createSignal<MdEditorInstType>()
   let $element!: HTMLDivElement
+
   onMount(() => {
     if (!$element) return
     const $editor = $element.querySelector(`.${styles.editor}`) as HTMLElement
@@ -35,6 +36,10 @@ export default function MdEditor(props: {
         lineWrapping: true,
         value: props.value,
         scrollbarStyle: 'overlay',
+        autoCloseTags: true,
+        styleActiveLine: true,
+        matchBrackets: true,
+        indentWithTabs: true,
       })
 
       const editorInst: MdEditorInstType = {
@@ -77,7 +82,7 @@ export default function MdEditor(props: {
     <div
       ref={$element}
       class={`${styles['out-wrapper']} ${
-        props.theme === 'dark' ? styles.dark : ''
+        props.theme === 'dark' ? `${styles.dark} dark` : ''
       }`}
     >
       <div class={styles.toolbar}>

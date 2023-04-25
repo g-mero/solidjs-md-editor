@@ -6,6 +6,10 @@
   height: 100%;
   color: black;
   direction: ltr;
+
+  textarea {
+    font-size: 2em;
+  }
 }
 
 /* PADDING */
@@ -241,6 +245,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 }
 .CodeMirror-activeline-background {
   background: #e8f2ff;
+  margin-right: 4px;
 }
 
 /* STOP */
