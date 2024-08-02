@@ -1,0 +1,27 @@
+.sme-toolbar {
+  --sme-toolbar-bg: white;
+  --sme-toolbar-border-c: #e0e0e0;
+
+  display: flex;
+  align-items: center;
+  background: var(--sme-toolbar-bg);
+  border-bottom: 1px solid var(--sme-toolbar-border-c);
+  gap: 2px;
+}
+
+.sme-dark.sme-toolbar {
+  --sme-toolbar-bg: #333;
+  --sme-toolbar-border-c: #444;
+  color: white;
+}
+
+.sme-toolbar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin: 0;
+}

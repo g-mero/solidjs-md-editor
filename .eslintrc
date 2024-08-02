@@ -1,4 +1,0 @@
-{
-  "extends": ["@xbmlz/eslint-config-solid", "@xbmlz/eslint-config-prettier"],
-  "ignorePatterns": ["*.mdx", "*.md", "*.rs", "*.toml"]
-}

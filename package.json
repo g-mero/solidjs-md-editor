@@ -1,39 +1,61 @@
 {
   "name": "solidjs-md-editor",
-  "private": false,
-  "version": "0.2.1",
   "type": "module",
-  "main": "./dist/editor.es.js",
-  "module": "./dist/editor.es.js",
+  "version": "0.3.0",
+  "private": false,
+  "exports": {
+    "import": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "typesVersions": {},
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "tsup --dts"
   },
-  "devDependencies": {
-    "@iconify-icon/solid": "^1.0.7",
-    "@iconify-icons/solar": "^1.2.0",
-    "@types/codemirror": "^5.60.7",
-    "@types/lodash-es": "^4.17.7",
-    "@xbmlz/eslint-config-prettier": "^0.1.16",
-    "@xbmlz/eslint-config-solid": "^0.1.16",
-    "babel-preset-solid": "^1.7.3",
-    "eslint": "^8.38.0",
-    "sass": "^1.61.0",
-    "typescript": "^4.9.5",
-    "typescript-plugin-css-modules": "^4.2.3",
-    "vite": "^3.2.5",
-    "vite-plugin-dts": "^2.2.0",
-    "vite-plugin-solid": "^2.7.0",
-    "@babel/core": "^7.21.4"
+  "peerDependencies": {
+    "solid-js": ">=1.8.0"
   },
   "dependencies": {
-    "codemirror": "5.65.12",
-    "lodash-es": "^4.17.21",
-    "solid-js": "^1.7.3"
-  }
+    "@codemirror/commands": "^6.6.0",
+    "@codemirror/lang-markdown": "^6.2.5",
+    "@codemirror/language": "^6.10.2",
+    "@codemirror/language-data": "^6.5.1",
+    "@codemirror/state": "^6.4.1",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@codemirror/view": "^6.29.1",
+    "@floating-ui/dom": "^1.6.7",
+    "@iconify-json/ri": "^1.1.21",
+    "@iconify/json": "^2.2.232",
+    "@lezer/highlight": "^1.2.0",
+    "@unocss/reset": "^0.61.2",
+    "codemirror": "^6.0.1",
+    "solid-motionone": "^1.0.0",
+    "solid-uses": "^0.1.4",
+    "unocss": "^0.61.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.21.2",
+    "@iconify-icon/solid": "^2.1.1",
+    "@lezer/markdown": "^1.3.0",
+    "@types/node": "^20.14.9",
+    "@unocss/vite": "^0.61.2",
+    "esbuild": "^0.23.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-solid": "^0.14.1",
+    "tsup": "^8.1.0",
+    "tsup-preset-solid": "^2.2.0",
+    "typescript": "^5.5.3",
+    "unplugin-auto-import": "^0.18.2",
+    "vite": "^5.3.3",
+    "vite-plugin-solid": "^2.10.2"
+  },
+  "browser": {}
 }

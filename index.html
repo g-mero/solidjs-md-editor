@@ -6,11 +6,11 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite + Solid</title>
-  <link rel="stylesheet" href="docs/global.css">
+  <link rel="stylesheet" href="docs/global.css" />
 </head>
 
-<body style="background-color: blanchedalmond;">
-  <div id="app" style="max-width: 600px; margin: 3rem auto 0;"></div>
+<body style="background-color: blanchedalmond">
+  <div id="app" style="max-width: 600px; margin: 3rem auto 0"></div>
   <div id="change-theme">
     <i class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
         <g fill="none">
@@ -21,7 +21,7 @@
         </g>
       </svg></i>
 
-    <i class="icon hide" style="color: #fff;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+    <i class="icon hide" style="color: #fff"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
         viewBox="0 0 24 24">
         <g fill="currentColor">
           <path d="M18 12a6 6 0 1 1-12 0a6 6 0 0 1 12 0Z" />
@@ -35,73 +35,17 @@
   <script type="module">
     import { Editor } from '/src/index.ts'
 
-    const md = window.markdownit()
+
 
     let theme = 'light'
 
     const editor = Editor({
       target: document.querySelector('#app'),
-      onChange(v) {
-        console.log(v)
-      },
-      handelPreview(v) {
-        return md.render(v)
-      },
+
       theme,
     })
 
-    editor.setVal(`## 这是测试测试
-可能有一些小问题
 
-但是问题不大
-
-主要是想看看有没有用
-
-> 比如这是一个blockquote
-
-> 这也是
-
-\`\`\`javascript
-var gmero = "gmero"
-
-console.log(gmero)
-\`\`\`
- 
-尽量弄个长一点我好测试滚动条的情况
-
-啊啊啊
-
-啊啊啊
-
-啊啊啊
-
-啊啊啊
-
-啊啊啊
- 
- `)
-
-    const changeThemeBtn = document.querySelector('#change-theme')
-
-    if (changeThemeBtn) {
-      changeThemeBtn.addEventListener('click', () => {
-        const [moon, sun] = changeThemeBtn.querySelectorAll('.icon')
-        if (theme === 'light') {
-          theme = 'dark'
-          moon.classList.add('hide')
-          sun.classList.remove('hide')
-          changeThemeBtn.classList.add('dark')
-          document.body.classList.add('dark')
-        } else {
-          theme = 'light'
-          sun.classList.add('hide')
-          moon.classList.remove('hide')
-          changeThemeBtn.classList.remove('dark')
-          document.body.classList.remove('dark')
-        }
-        editor.setTheme(theme)
-      })
-    }
   </script>
 </body>
 

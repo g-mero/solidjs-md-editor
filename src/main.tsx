@@ -1,47 +1,33 @@
-import { createSignal } from 'solid-js'
 import { render } from 'solid-js/web'
-import MdEditor from './editor/MdEditor'
-
-interface params {
-  target: HTMLElement
-  height: string
-  onChange: (v: string) => void
-  handelPreview: (v: string) => string
-  theme: 'light' | 'dark'
-}
+import { Toolbar, ToolbarItem } from './Toolbar'
+import EditorMain from './EditorMain'
+import { Provider } from './context'
+import { emptyItem, redoItem, undoItem } from './Toolbar/items'
 
 // 暴露给原生js使用，这里其实也就是对MdEditor的原生化封装
-export function Editor(config: params) {
-  if (!config.target) return
-  const [theme, setTheme] = createSignal(config.theme)
-  const [value, setValue] = createSignal('')
-  const onChange = (v: string) => {
-    setValue(v)
-    config.onChange(v)
-  }
+export function Editor(config: {
+  target: HTMLElement
+}) {
+  if (!config.target)
+    return {}
+
+  const toolbarItems = [undoItem, redoItem, emptyItem]
+
   render(
     () => (
-      <MdEditor
-        onChange={onChange}
-        handelPreview={config.handelPreview}
-        height={config.height}
-        theme={theme()}
-        value={value()}
-      />
+      <Provider theme="dark">
+        <Toolbar>
+          <For each={toolbarItems}>
+            {item => (
+              <ToolbarItem {...item} />
+            )}
+          </For>
+        </Toolbar>
+        <EditorMain height="300px" />
+      </Provider>
     ),
     config.target,
   )
-
   return {
-    setTheme: (theme: 'light' | 'dark') => {
-      setTheme(theme)
-    },
-    /* 设置编辑器的值 */
-    setVal: (v: string) => {
-      setValue(v)
-    },
-    getVal: () => {
-      return value()
-    },
   }
 }
