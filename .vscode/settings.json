@@ -1,0 +1,8 @@
+{
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "iconify.cdnEntry": "https://cdn.jsdelivr.net/gh/iconify/icon-sets/json",
+  "iconify.customCollectionJsonPaths": ["./solar.json"]
+}
