@@ -5,24 +5,21 @@ const context = createComponentState(() => ({
   content: '',
   cm: null as EditorView | null,
   theme: 'light' as 'light' | 'dark',
-}), {
-  getThemeCn() {
-    return this.state.theme === 'dark' ? 'sme-dark' : ''
-  },
-})
+}))
 
-export function Provider(props: { children: any, theme?: 'light' | 'dark' }) {
+export function Provider(props: { children: any, class?: string, theme?: 'light' | 'dark' }) {
   const Context = context.initial()
-
   const [,actions] = Context.value
 
-  watch([() => props.theme], () => {
-    actions.setTheme(props.theme || 'light')
+  watch(() => props.theme, () => {
+    props.theme && actions.setTheme(props.theme)
   })
 
   return (
     <Context.Provider>
-      {props.children}
+      <div class={props.class}>
+        {props.children}
+      </div>
     </Context.Provider>
   )
 }

@@ -1,16 +1,45 @@
 {
   "name": "solidjs-md-editor",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": false,
   "exports": {
+    "worker": {
+      "solid": "./dist/server.jsx",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/server.js"
+      }
+    },
+    "browser": {
+      "solid": "./dist/index.jsx",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "deno": {
+      "solid": "./dist/server.jsx",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/server.js"
+      }
+    },
+    "node": {
+      "solid": "./dist/server.jsx",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/server.js"
+      }
+    },
+    "solid": "./dist/index.jsx",
     "import": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "./dist/server.js",
+  "module": "./dist/server.js",
   "types": "./dist/index.d.ts",
   "typesVersions": {},
   "files": [
@@ -37,9 +66,7 @@
     "@lezer/highlight": "^1.2.0",
     "@unocss/reset": "^0.61.2",
     "codemirror": "^6.0.1",
-    "solid-motionone": "^1.0.0",
-    "solid-uses": "^0.1.4",
-    "unocss": "^0.61.2"
+    "solid-uses": "^0.1.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.2",
@@ -53,9 +80,12 @@
     "tsup": "^8.1.0",
     "tsup-preset-solid": "^2.2.0",
     "typescript": "^5.5.3",
+    "unocss": "^0.61.2",
     "unplugin-auto-import": "^0.18.2",
     "vite": "^5.3.3",
     "vite-plugin-solid": "^2.10.2"
   },
-  "browser": {}
+  "browser": {
+    "./dist/server.js": "./dist/index.js"
+  }
 }

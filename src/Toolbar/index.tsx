@@ -3,12 +3,12 @@ import type { EditorView } from 'codemirror'
 import { context } from '@/context'
 import Icon from '@/components/Icon'
 
-import './toolbar.css'
 
 export function ToolbarItem(props: {
   icon: string
   label: string
   action: (cm: EditorView) => void
+  class?: string
 }) {
   const [state] = context.useContext()
 
@@ -20,8 +20,7 @@ export function ToolbarItem(props: {
         }
       }}
       title={props.label}
-      class="sme-toolbar-item"
-
+      class={props.class}
     >
       <Icon name={props.icon} size="1.4em" />
     </button>
@@ -30,13 +29,11 @@ export function ToolbarItem(props: {
 
 export function Toolbar(props: {
   children?: JSX.Element
+  class?: string
 }) {
-  const [, actions] = context.useContext()
-
-  console.log(actions.getThemeCn())
 
   return (
-    <div class={`sme-toolbar ${actions.getThemeCn()}`}>
+    <div class={props.class}>
       {props.children}
     </div>
   )

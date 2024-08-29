@@ -1,8 +1,9 @@
 import antfu from '@antfu/eslint-config'
 
-export default antfu({
+export default antfu({ ignores: ['*.d.ts', '*.js'] }, {
   solid: true,
   rules: {
+    'ts/no-unused-expressions': 'off',
     'no-console': 'warn',
     // conflicts with auto-import
     'solid/jsx-no-undef': 'off',
@@ -11,5 +12,4 @@ export default antfu({
       customReactiveFunctions: ['watch'], // Array<string>
     }],
   },
-  ignores: ['*.d.ts', '*.js'],
 })

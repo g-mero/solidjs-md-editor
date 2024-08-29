@@ -3,14 +3,13 @@ import { rm } from 'node:fs'
 import { defineConfig } from 'tsup'
 import * as preset from 'tsup-preset-solid'
 import AutoImport from 'unplugin-auto-import/esbuild'
-import { style } from './esbuild-plugin-scss'
 
 const preset_options: preset.PresetOptions = {
   // array or single object
   entries: [
     {
-      entry: 'src/index.ts',
-
+      entry: 'src/index.tsx',
+      server_entry: true,
     },
   ],
   // Set to `true` to remove all `console.*` calls and `debugger` statements in prod builds
@@ -20,11 +19,7 @@ const preset_options: preset.PresetOptions = {
   esbuild_plugins: [AutoImport({
     imports: ['solid-js'],
     dts: './auto-imports.d.ts',
-  }), style()],
-  modify_esbuild_options: (opt) => {
-    opt.minify = false
-    return opt
-  },
+  })],
 }
 
 export default defineConfig((config) => {

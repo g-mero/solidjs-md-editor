@@ -43,6 +43,8 @@ export const basicLightTheme = EditorView.theme(
       backgroundColor: background,
     },
 
+    '&.cm-focused': {outline: 'none' },
+
     '.cm-content': {
       caretColor: cursor,
     },

@@ -2,6 +2,8 @@ import path from 'node:path'
 import { defineConfig } from 'vite'
 import solidPlugin from 'vite-plugin-solid'
 import AutoImport from 'unplugin-auto-import/vite'
+import UnoCSS from 'unocss/vite'
+import { presetUno } from 'unocss'
 
 export default defineConfig({
   resolve: {
@@ -10,9 +12,9 @@ export default defineConfig({
     },
   },
   plugins: [
-    // UnoCSS({
-    //   presets: [presetUno()],
-    // }),
+    UnoCSS({
+      presets: [presetUno()],
+    }),
     solidPlugin(),
     AutoImport({
       imports: ['solid-js'],
